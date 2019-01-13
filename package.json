@@ -1,0 +1,16 @@
+{
+  "name": "@hecom/wrapper-basic",
+  "version": "0.0.1",
+  "description": "Basic Wrapper of Loading Icon",
+  "main": "dist/index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:hecom/wrapper-basic.git"
+  },
+  "author": "Xiaosong Gao",
+  "license": "MIT",
+  "peerDependencies": {
+    "@hecom/foundation": "*"
+  }
+}
