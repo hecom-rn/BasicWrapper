@@ -1,6 +1,6 @@
 {
   "name": "@hecom/wrapper-basic",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Basic Wrapper of Loading Icon",
   "main": "dist/index.js",
   "scripts": {},
