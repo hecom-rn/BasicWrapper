@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
-import Foundation from '@hecom/foundation';
+import Foundation from '@hecom/foundation'; // eslint-disable-line
 
 export default (WrappedComponent) => {
     return class extends React.PureComponent {

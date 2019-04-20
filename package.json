@@ -1,16 +1,22 @@
 {
   "name": "@hecom/wrapper-basic",
   "version": "1.0.0",
+  "private": false,
   "description": "Basic Wrapper of Loading Icon",
-  "main": "dist/index.js",
-  "scripts": {},
+  "main": "src/index.tsx",
+  "scripts": {
+    "test": "./node_modules/.bin/eslint . --ext .ts,.tsx"
+  },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.com:hecom/wrapper-basic.git"
+    "url": "https://github.com/hecom-rn/BasicWrapper.git"
   },
   "author": "Xiaosong Gao",
   "license": "MIT",
-  "peerDependencies": {
-    "@hecom/foundation": "*"
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "eslint-plugin-automatic": "latest"
   }
 }
