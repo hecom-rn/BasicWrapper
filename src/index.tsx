@@ -11,6 +11,11 @@ export default (WrappedComponent) => {
             this.props.navigation.setParams({_isApiLoading, _apiLoadingStyle});
         };
 
+        constructor(props) {
+            super(props);
+            Navigation.setRefreshNav(props.navigation);
+        }
+
         componentDidMount() {
             this.viewDidAppear = this.props.navigation.addListener(
                 'didFocus',
