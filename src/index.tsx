@@ -1,6 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import Foundation from '@hecom/foundation'; // eslint-disable-line
+import LottieView from 'lottie-react-native';
 
 export default (WrappedComponent) => {
     return class extends React.PureComponent {
@@ -31,7 +32,15 @@ export default (WrappedComponent) => {
         _renderLoadingView = (style) => {
             return (
                 <View style={[styles.loading, style]}>
-                    <ActivityIndicator size='small' color='#999999' />
+                    {/* <ActivityIndicator size='small' color='#999999' /> */}
+                    <LottieView
+                                source={require('core/common/image/loading/butterfly_loader.json')}
+                                loop={true}
+                                autoPlay={true}
+                                resizeMode={'contain'}
+                                style={{height: 150, width: 150}}
+                                imageAssetsFolder='lottieLoading'
+                            />
                 </View>
             );
         };
