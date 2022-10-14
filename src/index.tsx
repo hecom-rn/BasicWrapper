@@ -11,6 +11,13 @@ export default (WrappedComponent) => {
             this.props.navigation.setParams({_isApiLoading, _apiLoadingStyle});
         };
 
+        componentWillUnmount(): void {
+            if (this.lottieView) {
+                this.lottieView.pause();
+                this.lottieView = null;
+            }
+        }
+
         render() {
             const params = this.props.route.params || {};
             const {_isApiLoading, _apiLoadingStyle} = params;
