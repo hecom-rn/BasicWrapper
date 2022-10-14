@@ -6,7 +6,7 @@ import LottieView from 'lottie-react-native';
 export default (WrappedComponent) => {
     return class extends React.PureComponent {
         static navigationOptions = WrappedComponent.navigationOptions || {headerShown: false};
-
+        lottieView;
         _apiRefresh = (_isApiLoading, _apiLoadingStyle) => {
             this.props.navigation.setParams({_isApiLoading, _apiLoadingStyle});
         };
@@ -16,6 +16,10 @@ export default (WrappedComponent) => {
             const {_isApiLoading, _apiLoadingStyle} = params;
             delete params._isApiLoading;
             delete params._apiLoadingStyle;
+            if (!_isApiLoading && this.lottieView) {
+                this.lottieView.pause();
+                this.lottieView = null;
+            }
             return (
                 <View style={[styles.view, Foundation.Style.ViewBackground]}>
                     <WrappedComponent
@@ -34,6 +38,7 @@ export default (WrappedComponent) => {
                 <View style={[styles.loading, style]}>
                     {/* <ActivityIndicator size='small' color='#999999' /> */}
                     <LottieView
+                                ref={(ref) => (this.lottieView = ref)}
                                 source={require('core/common/image/loading/butterfly_loader.json')}
                                 loop={true}
                                 autoPlay={true}
