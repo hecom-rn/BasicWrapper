@@ -3,7 +3,7 @@ import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import Foundation from '@hecom/foundation'; // eslint-disable-line
 import LottieView from 'lottie-react-native';
 
-export default (WrappedComponent) => {
+export default (WrappedComponent, style = undefined) => {
     return class extends React.PureComponent {
         static navigationOptions = WrappedComponent.navigationOptions || {headerShown: false};
         lottieView;
@@ -28,7 +28,7 @@ export default (WrappedComponent) => {
                 this.lottieView = null;
             }
             return (
-                <View style={[styles.view, Foundation.Style.ViewBackground]}>
+                <View style={[styles.view, Foundation.Style.ViewBackground, style]}>
                     <WrappedComponent
                         {...params}
                         navigation={this.props.navigation}
