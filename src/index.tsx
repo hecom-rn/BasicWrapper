@@ -51,7 +51,7 @@ export default (WrappedComponent, style = undefined) => {
                                 autoPlay={true}
                                 resizeMode={'contain'}
                                 style={{height: 150, width: 150}}
-                                imageAssetsFolder={'lottieLoading'}
+                                imageAssetsFolder={'image/lottieLoading'}
                             />
                 </View>
             );
