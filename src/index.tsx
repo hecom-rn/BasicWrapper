@@ -7,8 +7,8 @@ export default (WrappedComponent, style = undefined) => {
     return class extends React.PureComponent {
         static navigationOptions = WrappedComponent.navigationOptions || {headerShown: false};
         lottieView;
-        _apiRefresh = (_isApiLoading, _apiLoadingStyle) => {
-            this.props.navigation.setParams({_isApiLoading, _apiLoadingStyle});
+        _apiRefresh = (_isApiLoading) => {
+            this.props.navigation.setParams({_isApiLoading});
         };
 
         componentWillUnmount(): void {
@@ -20,9 +20,8 @@ export default (WrappedComponent, style = undefined) => {
 
         render() {
             const params = this.props.route.params || {};
-            const {_isApiLoading, _apiLoadingStyle} = params;
+            const {_isApiLoading} = params;
             delete params._isApiLoading;
-            delete params._apiLoadingStyle;
             if (!_isApiLoading && this.lottieView) {
                 this.lottieView.pause();
                 this.lottieView = null;
@@ -35,14 +34,14 @@ export default (WrappedComponent, style = undefined) => {
                         apiRefresh={this._apiRefresh}
                         route = {this.props.route}
                     />
-                    {_isApiLoading && this._renderLoadingView(_apiLoadingStyle)}
+                    {_isApiLoading && this._renderLoadingView()}
                 </View>
             );
         }
 
-        _renderLoadingView = (style) => {
+        _renderLoadingView = () => {
             return (
-                <View style={[styles.loading, style]}>
+                <View style={styles.loading}>
                     {/* <ActivityIndicator size='small' color='#999999' /> */}
                     <LottieView
                                 ref={(ref) => (this.lottieView = ref)}
